@@ -1,4 +1,4 @@
-from rest_framework.serializers import ModelSerializer, SlugRelatedField, StringRelatedField, HyperlinkedIdentityField, ValidationError
+from rest_framework.serializers import ModelSerializer, SlugRelatedField, ValidationError
 from monteseupc.models import *
 import re
 
