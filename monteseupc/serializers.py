@@ -28,7 +28,7 @@ def validarPlacaDeVideo(value):
 
 
 def validarQuantidadeSlots(value):
-	if value['qtd_memoria'] > value['placa_mae'].slots:
+	if value['qtd_de_memoria'] > value['placa_mae'].slots:
 		raise ValidationError('Quantidade incompatível, a placa mãe so possui {} slots.'.format(value['placa_mae'].slots))
 	return value
 
@@ -56,7 +56,7 @@ class MonteSeuPcSerializer(ModelSerializer):
 	class Meta:
 		model = MonteSeuPC
 		fields = [
-			'id', 'processador', 'placa_mae', 'memoria', 'qtd_memoria', 'tamanho_da_memoria', 'placa_de_video'
+			'id', 'processador', 'placa_mae', 'memoria', 'qtd_de_memoria', 'tamanho_da_memoria', 'placa_de_video'
 		]
 		validators = [
 			validarMontagemPlacaMae,

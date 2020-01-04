@@ -32,6 +32,11 @@ class MonteSeuPC(models.Model):
     tamanho_da_memoria = models.CharField("Tamanho da Memoria", choices=tamanho_memorias, max_length=50)
     placa_de_video = models.ForeignKey("PlacaDeVideo", verbose_name=("Placa de Video"), on_delete=models.CASCADE, null=True)
 
+    class Meta:
+        verbose_name = ("")
+        verbose_name_plural = ("s")
+        def __str__(self):
+                return self.memoria
 
 class Processador(models.Model):
 	produto = models.CharField("Produto", max_length=50)
