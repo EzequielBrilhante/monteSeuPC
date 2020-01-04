@@ -1,0 +1,95 @@
+[
+    {
+        "model": "monteseupc.Processador",
+        "pk": 1,
+        "fields": {
+            "produto": "Processador Intel Core i5",
+            "marca": "INTEL"
+        }
+    },
+    {
+        "model": "monteseupc.Processador",
+        "pk": 2,
+        "fields": {
+            "produto": "Processador Intel Core i7",
+            "marca": "INTEL"
+        }
+    },
+    {
+        "model": "monteseupc.Processador",
+        "pk": 3,
+        "fields": {
+            "produto": "Processador AMD Athlon",
+            "marca": "AMD"
+        }
+    },
+    {
+        "model": "monteseupc.Processador",
+        "pk": 4,
+        "fields": {
+            "produto": "Processador AMD Ryzen 7",
+            "marca": "AMD"
+        }
+    },
+    {
+        "model": "monteseupc.PlacaMae",
+        "pk": 1,
+        "fields": {
+            "produto": "Placa Mãe Asus Prime",
+            "processadores_suportados": "INTEL",
+            "slots": "2",
+            "memom_suportada": "16GB",
+            "video_integrado": false
+        }
+    },
+    {
+        "model": "monteseupc.PlacaMae",
+        "pk": 2,
+        "fields": {
+            "produto": "Placa Mãe Gigabyte",
+            "processadores_suportados": "AMD",
+            "slots": "2",
+            "memom_suportada": "16GB",
+            "video_integrado": false
+        }
+    },
+    {
+        "model": "monteseupc.PlacaMae",
+        "pk": 3,
+        "fields": {
+            "produto": "Placa Mãe ASRock Fatal",
+            "processadores_suportados": "ambos",
+            "slots": "4",
+            "memom_suportada": "64GB",
+            "video_integrado": true
+        }
+    },
+    {
+        "model": "monteseupc.Memoria",
+        "pk": 1,
+        "fields": {
+            "produto": "HyperX"
+        }
+    },
+    {
+        "model": "monteseupc.PlacaDeVideo",
+        "pk": 1,
+        "fields": {
+            "produto": "Placa de Video Gigabyte Geforce GTX 1060 6GB"
+        }
+    },
+    {
+        "model": "monteseupc.PlacaDeVideo",
+        "pk": 2,
+        "fields": {
+            "produto": "Placa de Video PNY RTX 2060 6GB"
+        }
+    },
+    {
+        "model": "monteseupc.PlacaDeVideo",
+        "pk": 3,
+        "fields": {
+            "produto": "Placa de Video Radeon RX 580 8GB"
+        }
+    }
+]
