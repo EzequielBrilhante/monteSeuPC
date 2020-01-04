@@ -15,7 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from monteseupc.views import *
+from rest_framework import routers, serializers, viewsets
+
+router = routers.DefaultRouter()
+router.register(r'api/monteseupc', MonteSeuPcViewSet)
+router.register(r'api/processadores', ProcessadorViewSet)
+router.register(r'api/placamaes', PlacaMaeViewSet)
+router.register(r'api/memorias', MemoriaViewSet)
+router.register(r'api/placasdevideo', PlacaDeVideoViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+     path('', include(router.urls)),
 ]

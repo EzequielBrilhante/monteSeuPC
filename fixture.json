@@ -38,7 +38,7 @@
             "produto": "Placa Mãe Asus Prime",
             "processadores_suportados": "INTEL",
             "slots": "2",
-            "memom_suportada": "16GB",
+            "memoria_suportada": "16GB",
             "video_integrado": false
         }
     },
@@ -49,7 +49,7 @@
             "produto": "Placa Mãe Gigabyte",
             "processadores_suportados": "AMD",
             "slots": "2",
-            "memom_suportada": "16GB",
+            "memoria_suportada": "16GB",
             "video_integrado": false
         }
     },
@@ -60,7 +60,7 @@
             "produto": "Placa Mãe ASRock Fatal",
             "processadores_suportados": "ambos",
             "slots": "4",
-            "memom_suportada": "64GB",
+            "memoria_suportada": "64GB",
             "video_integrado": true
         }
     },

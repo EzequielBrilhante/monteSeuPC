@@ -27,7 +27,7 @@ def validarPlacaDeVideo(value):
 	return value
 
 
-def validarQuantidadeDeSlots(value):
+def validarQuantidadeSlots(value):
 	if value['qtd_memoria'] > value['placa_mae'].slots:
 		raise ValidationError('Quantidade incompatível, a placa mãe so possui {} slots.'.format(value['placa_mae'].slots))
 	return value
@@ -37,7 +37,7 @@ def validarQuantidadeDeSlots(value):
 class MonteSeuPcSerializer(ModelSerializer):
 	processador = SlugRelatedField(
 		slug_field='produto',
-		queryset=Processador.obejcts.all()
+		queryset=Processador.objects.all()
 	)
 	memoria = SlugRelatedField(
 		slug_field='produto',
@@ -58,3 +58,35 @@ class MonteSeuPcSerializer(ModelSerializer):
 		fields = [
 			'id', 'processador', 'placa_mae', 'memoria', 'qtd_memoria', 'tamanho_da_memoria', 'placa_de_video'
 		]
+		validators = [
+			validarMontagemPlacaMae,
+			validarMemoria,
+			validarPlacaDeVideo,
+			validarQuantidadeSlots,
+		]
+
+
+class ProcessadorSerializer(ModelSerializer):
+	class Meta:
+		model = Processador
+		fields = ['produto', 'marca']
+	
+
+class PlacaMaeSerializer(ModelSerializer):
+	class Meta:
+		model = PlacaMae
+		fields = [
+			'produto', 'processadores_suportados', 'slots', 'memoria_suportada', 'video_integrado'
+		]
+
+
+class MemoriaSerializer(ModelSerializer):
+	class Meta:
+		model = Memoria
+		fields = ['produto']
+
+
+class PlacaDeVideoSerializer(ModelSerializer):
+	class Meta:
+		model = PlacaDeVideo
+		fields = ['produto']
