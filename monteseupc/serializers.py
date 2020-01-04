@@ -25,3 +25,36 @@ def validarPlacaDeVideo(value):
 	if value['placa_mae'].video_integrado == False and value['placa_de_video'] == None:
 		raise ValidationError("A placa mãe não possui vídeo integrado, por favor escolha uma.")
 	return value
+
+
+def validarQuantidadeDeSlots(value):
+	if value['qtd_memoria'] > value['placa_mae'].slots:
+		raise ValidationError('Quantidade incompatível, a placa mãe so possui {} slots.'.format(value['placa_mae'].slots))
+	return value
+
+
+
+class MonteSeuPcSerializer(ModelSerializer):
+	processador = SlugRelatedField(
+		slug_field='produto',
+		queryset=Processador.obejcts.all()
+	)
+	memoria = SlugRelatedField(
+		slug_field='produto',
+		queryset=Memoria.objects.all()
+	)
+	placa_mae = SlugRelatedField(
+		slug_field='produto',
+		queryset=PlacaMae.objects.all()
+	)
+	placa_de_video = SlugRelatedField(
+		slug_field='produto',
+		allow_null=True,
+		queryset=PlacaDeVideo.objects.all()
+	)
+
+	class Meta:
+		model = MonteSeuPC
+		fields = [
+			'id', 'processador', 'placa_mae', 'memoria', 'qtd_memoria', 'tamanho_da_memoria', 'placa_de_video'
+		]
